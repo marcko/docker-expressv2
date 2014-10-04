@@ -12,7 +12,7 @@ RUN npm install -g express bower
 RUN apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisor
 
-
+ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord-nodejs.conf
 
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
