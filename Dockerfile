@@ -13,6 +13,9 @@ RUN npm install -g nodemon
 RUN apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisor
 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get autoremove -y
+
 ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord-nodejs.conf
 
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
