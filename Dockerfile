@@ -23,3 +23,4 @@ WORKDIR /var/www
 
 VOLUME ["/var/files", "/var/www"]
 
+CMD ["/usr/bin/supervisord", "-n"]
