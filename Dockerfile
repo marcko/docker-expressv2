@@ -8,6 +8,12 @@ RUN apt-get update
 RUN apt-get -qq update
 RUN apt-get install -y nodejs npm git
 RUN npm install -g express bower
+RUN npm install -g nodemon
+
+RUN apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
+
+ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord-nodejs.conf
 
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
